@@ -1,254 +1,286 @@
-// script.js
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all components
-    const loadingScreen = new LoadingScreen();
-    const customCursor = new CustomCursor();
-    const notificationSystem = new NotificationSystem();
-    const memeGenerator = new MemeGenerator();
-    const socialFeed = new SocialFeed();
-    const gameManager = new GameManager();
-    const floatingElements = new FloatingElements();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Short Monkey's Banana Paradise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --banana-yellow: #ffdb4d;
+            --jungle-green: #2e7d32;
+            --monkey-brown: #8b4513;
+            --tree-bark: #5d4037;
+        }
 
-    // Loading Screen Manager
-    function LoadingScreen() {
-        const loadingFacts = [
-            "Loading Anika's banana collection... 🍌",
-            "Analyzing dramatic baboon behavior... 🎭",
-            "Calculating drama levels... 📊",
-            "Scanning for baboon tendencies... 🔍",
-            "Processing banana addiction data... 🐒"
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: linear-gradient(rgba(46, 125, 50, 0.9), rgba(46, 125, 50, 0.9)),
+                url('https://www.transparenttextures.com/patterns/jungle.png');
+            font-family: 'Comic Neue', cursive;
+            color: white;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: var(--monkey-brown);
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .header h1 {
+            font-family: 'Bangers', cursive;
+            font-size: 3em;
+            color: var(--banana-yellow);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: swingText 3s infinite;
+        }
+
+        /* Navigation */
+        .nav {
+            background-color: var(--tree-bark);
+            padding: 10px;
+            margin-top: 80px;
+        }
+
+        .nav a {
+            color: var(--banana-yellow);
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.2em;
+            transition: all 0.3s;
+        }
+
+        .nav a:hover {
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .monkey-profile {
+            background-color: rgba(139, 69, 19, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .monkey-profile img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid var(--banana-yellow);
+            margin-right: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        /* Banana Counter Section */
+        .banana-counter {
+            background-color: rgba(255, 219, 77, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            color: var(--monkey-brown);
+            margin: 20px 0;
+        }
+
+        #banana-count {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        /* Interactive Elements */
+        .banana-button {
+            background-color: var(--banana-yellow);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 10px;
+            font-family: 'Bangers', cursive;
+        }
+
+        .banana-button:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Gallery Section */
+        .monkey-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .gallery-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        /* Animations */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes swingText {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--tree-bark);
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .monkey-profile {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .monkey-profile img {
+                margin: 0 0 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>🐒 Short Monkey's Banana Paradise 🍌</h1>
+    </header>
+
+    <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#gallery">Monkey Gallery</a>
+        <a href="#games">Banana Games</a>
+        <a href="#about">About Me</a>
+    </nav>
+
+    <div class="main-container">
+        <section class="monkey-profile">
+            <img src="https://media.giphy.com/media/DPiuat0EsqP3a/giphy.gif" alt="Short Monkey">
+            <div>
+                <h2>Hey There, I'm Short Monkey! 🐒</h2>
+                <p>I might be vertically challenged, but my enthusiasm for bananas reaches the treetops! Join me in my daily banana adventures!</p>
+            </div>
+        </section>
+
+        <section class="banana-counter">
+            <h3>Banana Counter</h3>
+            <p>Bananas collected today: <span id="banana-count">0</span> 🍌</p>
+            <button class="banana-button" onclick="collectBanana()">Collect Banana!</button>
+        </section>
+
+        <section class="monkey-gallery">
+            <div class="gallery-item">
+                <img src="https://placeimg.com/300/300/animals" alt="Monkey Fun 1">
+                <h3>Jungle Gymnastics</h3>
+            </div>
+            <div class="gallery-item">
+                <img src="https://placeimg.com/300/300/animals" alt="Monkey Fun 2">
+                <h3>Banana Break</h3>
+            </div>
+            <div class="gallery-item">
+                <img src="https://placeimg.com/300/300/animals" alt="Monkey Fun 3">
+                <h3>Tree-top Party</h3>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>🍌 Created with love by Short Monkey © 2023 🐒</p>
+    </footer>
+
+    <script>
+        let bananaCount = 0;
+        const monkeyPhrases = [
+            "Ooh ooh ah ah! Another banana for my collection! 🍌",
+            "I may be short, but my banana pile is getting tall! 📏",
+            "Monkey see, monkey do, monkey got another banana too! 🐒",
+            "Going bananas over here! Keep them coming! 🍌",
+            "This is absolutely BANANAS! 🎉"
         ];
 
-        const loadingScreen = document.querySelector('.loading-screen');
-        const factsElement = document.querySelector('.loading-facts span');
-        let factIndex = 0;
+        function collectBanana() {
+            bananaCount++;
+            document.getElementById('banana-count').textContent = bananaCount;
+            
+            // Random phrase alert
+            const randomPhrase = monkeyPhrases[Math.floor(Math.random() * monkeyPhrases.length)];
+            alert(randomPhrase);
 
-        // Change loading facts every second
-        const factInterval = setInterval(() => {
-            factsElement.textContent = loadingFacts[factIndex];
-            factIndex = (factIndex + 1) % loadingFacts.length;
-        }, 1000);
+            // Add banana animation
+            const banana = document.createElement('div');
+            banana.style.position = 'fixed';
+            banana.style.fontSize = '2em';
+            banana.textContent = '🍌';
+            banana.style.left = Math.random() * window.innerWidth + 'px';
+            banana.style.top = '-50px';
+            document.body.appendChild(banana);
 
-        // Remove loading screen after animation
-        setTimeout(() => {
-            clearInterval(factInterval);
-            loadingScreen.style.opacity = '0';
-            setTimeout(() => {
-                loadingScreen.style.display = 'none';
-            }, 500);
-        }, 3000);
-    }
+            // Animate banana falling
+            let pos = -50;
+            const fall = setInterval(() => {
+                if (pos > window.innerHeight) {
+                    document.body.removeChild(banana);
+                    clearInterval(fall);
+                } else {
+                    pos += 5;
+                    banana.style.top = pos + 'px';
+                }
+            }, 20);
+        }
 
-    // Custom Banana Cursor
-    function CustomCursor() {
-        const cursor = document.querySelector('.banana-cursor');
+        // Easter egg: Konami code
+        let keys = [];
+        const konami = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
         
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.pageX + 'px';
-            cursor.style.top = e.pageY + 'px';
-        });
-    }
-
-    // Notification System
-    function NotificationSystem() {
-        const notifications = [
-            "🚨 Breaking: Anika spotted doing perfect baboon impression!",
-            "🍌 Alert: Banana supply running low in cafeteria",
-            "😱 Live Updates: Anika's drama level reaching new heights!",
-            "🎭 Exclusive: Secret baboon dance moves spotted in hallway",
-            "👑 Update: Anika crowned queen of dramatic reactions"
-        ];
-
-        const container = document.getElementById('notification-center');
-
-        function showNotification() {
-            const notification = document.createElement('div');
-            notification.className = 'notification animate__animated animate__slideInRight';
-            notification.textContent = notifications[Math.floor(Math.random() * notifications.length)];
-            container.appendChild(notification);
-
-            setTimeout(() => {
-                notification.classList.add('animate__slideOutRight');
-                setTimeout(() => notification.remove(), 500);
-            }, 4000);
-        }
-
-        // Show random notifications
-        setInterval(showNotification, 5000);
-    }
-
-    // Meme Generator
-    function MemeGenerator() {
-        const canvas = document.getElementById('memeCanvas');
-        const ctx = canvas.getContext('2d');
-        const generateBtn = document.getElementById('generateMeme');
-        const downloadBtn = document.getElementById('downloadMeme');
-        const topTextInput = document.getElementById('topText');
-        const bottomTextInput = document.getElementById('bottomText');
-
-        canvas.width = 500;
-        canvas.height = 500;
-
-        const memeTemplates = [
-            'anika-baboon1.jpg',
-            'anika-baboon2.jpg',
-            'dramatic-anika.jpg'
-        ];
-
-        function generateMeme() {
-            const img = new Image();
-            img.onload = () => {
-                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                ctx.fillStyle = 'white';
-                ctx.strokeStyle = 'black';
-                ctx.lineWidth = 3;
-                ctx.font = '40px Impact';
-                ctx.textAlign = 'center';
-
-                // Add top text
-                ctx.fillText(topTextInput.value, canvas.width/2, 50);
-                ctx.strokeText(topTextInput.value, canvas.width/2, 50);
-
-                // Add bottom text
-                ctx.fillText(bottomTextInput.value, canvas.width/2, canvas.height - 20);
-                ctx.strokeText(bottomTextInput.value, canvas.width/2, canvas.height - 20);
-            };
-            img.src = memeTemplates[Math.floor(Math.random() * memeTemplates.length)];
-        }
-
-        generateBtn.addEventListener('click', generateMeme);
-        downloadBtn.addEventListener('click', () => {
-            const link = document.createElement('a');
-            link.download = 'anika-meme.png';
-            link.href = canvas.toDataURL();
-            link.click();
-        });
-    }
-
-    // Social Feed
-    function SocialFeed() {
-        const socialPosts = [
-            {
-                username: "AnikaBaboonQueen",
-                content: "Just did my morning grooming routine 💁‍♀️ #BaboonLife",
-                likes: 1234,
-                comments: ["Totally saw you picking bugs off Sarah in math class 😂"]
-            },
-            {
-                username: "BaboonGirl2024",
-                content: "When someone takes your banana 🍌 Time for revenge! 😈",
-                likes: 2345,
-                comments: ["Queen of the troop! 👑"]
+        document.addEventListener('keydown', (e) => {
+            keys.push(e.key);
+            keys = keys.slice(-10);
+            
+            if (JSON.stringify(keys) === JSON.stringify(konami)) {
+                document.body.style.transform = 'rotate(180deg)';
+                setTimeout(() => document.body.style.transform = 'rotate(0deg)', 1000);
+                alert('🍌 SECRET MONKEY MODE ACTIVATED! 🐒');
             }
-        ];
-
-        const container = document.getElementById('socialPosts');
-
-        socialPosts.forEach(post => {
-            const postElement = document.createElement('div');
-            postElement.className = 'social-post animate__animated animate__fadeIn';
-            postElement.innerHTML = `
-                <div class="post-header">
-                    <img src="profile-pic.jpg" alt="Profile" class="profile-pic">
-                    <span class="post-username">@${post.username}</span>
-                </div>
-                <div class="post-content">${post.content}</div>
-                <div class="post-actions">
-                    <span>❤️ ${post.likes} likes</span>
-                    <span>💭 ${post.comments.length} comments</span>
-                </div>
-                <div class="post-comments">
-                    ${post.comments.map(comment => `<div class="comment">${comment}</div>`).join('')}
-                </div>
-            `;
-            container.appendChild(postElement);
         });
-    }
-
-    // Game Manager
-    function GameManager() {
-        const bananaGame = {
-            canvas: document.getElementById('gameCanvas'),
-            ctx: null,
-            player: { x: 50, y: 50, speed: 5 },
-            bananas: [],
-            score: 0,
-
-            init() {
-                this.canvas.width = 400;
-                this.canvas.height = 400;
-                this.ctx = this.canvas.getContext('2d');
-                this.setupControls();
-                this.startGame();
-            },
-
-            setupControls() {
-                document.addEventListener('keydown', (e) => {
-                    switch(e.key) {
-                        case 'ArrowLeft': this.player.x -= this.player.speed; break;
-                        case 'ArrowRight': this.player.x += this.player.speed; break;
-                        case 'ArrowUp': this.player.y -= this.player.speed; break;
-                        case 'ArrowDown': this.player.y += this.player.speed; break;
-                    }
-                });
-            },
-
-            startGame() {
-                setInterval(() => {
-                    this.update();
-                    this.draw();
-                }, 1000/60);
-            },
-
-            update() {
-                // Game logic
-            },
-
-            draw() {
-                // Drawing logic
-            }
-        };
-
-        bananaGame.init();
-    }
-
-    // Floating Elements
-    function FloatingElements() {
-        const emojis = ['🍌', '🐒', '😂', '🙈', '👑'];
-        const container = document.getElementById('floating-emojis');
-
-        function createFloatingEmoji() {
-            const emoji = document.createElement('div');
-            emoji.className = 'floating-emoji';
-            emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-            emoji.style.left = Math.random() * window.innerWidth + 'px';
-            container.appendChild(emoji);
-            setTimeout(() => emoji.remove(), 5000);
-        }
-
-        setInterval(createFloatingEmoji, 1000);
-    }
-
-    // Easter Eggs
-    const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-    let konamiIndex = 0;
-
-    document.addEventListener('keydown', (e) => {
-        if(e.key === konamiCode[konamiIndex]) {
-            konamiIndex++;
-            if(konamiIndex === konamiCode.length) {
-                activateRainbowMode();
-                konamiIndex = 0;
-            }
-        } else {
-            konamiIndex = 0;
-        }
-    });
-
-    function activateRainbowMode() {
-        document.body.style.animation = 'rainbow 1s infinite';
-        setTimeout(() => {
-            document.body.style.animation = '';
-        }, 5000);
-    }
-});
+    </script>
+</body>
+</html>
