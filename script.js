@@ -1,63 +1,101 @@
 // script.js
 document.addEventListener('DOMContentLoaded', function() {
-    // Community cards data
-    const communityData = [
-        { title: 'The Drama Queens', description: 'Your specialty! 👑' },
-        { title: 'The Loud Ones', description: 'Definitely you! 📢' },
-        { title: 'The Snack Stealers', description: 'Reminds me of you at lunch 🍪' },
-        { title: 'The Show-offs', description: 'Like you in PE! 💃' },
-        { title: 'The Troublemakers', description: 'No comment... 😏' }
-    ];
-
-    // Create community cards
-    const communityCards = document.getElementById('communityCards');
-    communityData.forEach(data => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
-            <h3>${data.title}</h3>
-            <p>${data.description}</p>
-        `;
-        communityCards.appendChild(card);
+    // Custom cursor
+    document.addEventListener('mousemove', (e) => {
+        const cursor = document.querySelector('.banana-cursor');
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
     });
 
-    // Image transform button
-    const transformButton = document.getElementById('transformButton');
-    const baboonImage = document.getElementById('baboonImage');
-    let isTransformed = false;
+    // Dramatic entry
+    setTimeout(() => {
+        const dramaticEntry = document.getElementById('dramaticEntry');
+        dramaticEntry.style.display = 'block';
+        setTimeout(() => {
+            dramaticEntry.style.display = 'none';
+        }, 3000);
+    }, 1000);
 
-    transformButton.addEventListener('click', () => {
-        isTransformed = !isTransformed;
-        if (isTransformed) {
-            baboonImage.style.transform = 'rotate(360deg) scale(1.2)';
-            transformButton.textContent = 'Change Back!';
-        } else {
-            baboonImage.style.transform = 'none';
-            transformButton.textContent = 'Click to See Anika Transform!';
-        }
-    });
-
-    // Random facts popup
-    const facts = [
-        "Anika spotted stealing snacks again! 🍪",
-        "Breaking news: Anika started drama in the troop! 🎭",
-        "Alert: Anika's loud laugh heard across the savanna! 😂",
-        "Update: Anika crowned queen of sass! 👑"
+    // Evidence cards data
+    const evidenceData = [
+        {
+            title: "Exhibit A: The Banana Incident",
+            description: "Caught on camera: Anika fighting over the last banana in the cafeteria! 🍌",
+        },
+        {
+            title: "Exhibit B: The Morning Ritual",
+            description: "Just like a baboon, Anika spends 2 hours grooming her hair every morning! 💁‍♀️",
+        },
+        {
+            title: "Exhibit C: The Dramatic Screech",
+            description: "That time Anika screamed because someone took her seat... Classic baboon behavior! 🙈",
+        },
+        // Add more evidence cards
     ];
 
-    function showRandomFact() {
+    // Timeline data
+    const timelineData = [
+        {
+            time: "7:00 AM",
+            event: "Wakes up and immediately starts making baboon noises 🗣️",
+        },
+        {
+            time: "8:00 AM",
+            event: "Steals everyone's breakfast like a true baboon 🍳",
+        },
+        {
+            time: "10:00 AM",
+            event: "Creates drama in class (baboon territory marking) 🎭",
+        },
+        // Add more timeline events
+    ];
+
+    // Social media posts
+    const socialPosts = [
+        {
+            username: "AnikaBaboon123",
+            content: "Just hanging from the chandelier again! Teacher's not impressed 🙈 #BaboonLife",
+            likes: "1M likes",
+        },
+        {
+            username: "BaboonQueen",
+            content: "When someone takes your banana 🍌 Time for revenge! 😈",
+            likes: "2M likes",
+        },
+        // Add more social posts
+    ];
+
+    // Random funny popups
+    const funnyPopups = [
+        "Breaking: Anika seen practicing baboon calls in the bathroom! 🚽",
+        "Alert: School considering adding trees for Anika to climb! 🌳",
+        "Exclusive: Anika's secret banana stash discovered in locker! 🍌",
+        // Add more popups
+    ];
+
+    function showRandomPopup() {
         const popup = document.createElement('div');
         popup.className = 'popup';
-        popup.style.top = Math.random() * (window.innerHeight - 100) + 'px';
-        popup.style.right = '-300px';
-        popup.textContent = facts[Math.floor(Math.random() * facts.length)];
-        document.body.appendChild(popup);
-
-        setTimeout(() => {
-            popup.remove();
-        }, 3000);
+        popup.textContent = funnyPopups[Math.floor(Math.random() * funnyPopups.length)];
+        document.getElementById('popupContainer').appendChild(popup);
+        setTimeout(() => popup.remove(), 3000);
     }
 
-    // Show random facts every 5 seconds
-    setInterval(showRandomFact, 5000);
+    // Create floating bananas
+    function createBanana() {
+        const banana = document.createElement('div');
+        banana.className = 'banana';
+        banana.innerHTML = '🍌';
+        banana.style.left = Math.random() * window.innerWidth + 'px';
+        document.getElementById('bananas').appendChild(banana);
+        setTimeout(() => banana.remove(), 10000);
+    }
+
+    // Initialize all components
+    setInterval(showRandomPopup, 5000);
+    setInterval(createBanana, 2000);
+
+    // Add more interactive features and animations here
 });
+
+// Add functions for meme generator, photo comparison, and more interactive features
