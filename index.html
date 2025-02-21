@@ -4,61 +4,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🐒 Anika's Baboon Life Exposed! 🙈</title>
+    <title>🐒 The Ultimate Anika Baboon Encyclopedia 2.0 🙈</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="banana-cursor"></div>
+    <div class="loading-screen">
+        <div class="loading-text">🐒 Loading Anika's Baboon Database... 🍌</div>
+        <div class="progress-bar"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-item" data-section="evidence">📝 Baboon Evidence</div>
+        <div class="nav-item" data-section="daily-life">🌞 Daily Baboonery</div>
+        <div class="nav-item" data-section="memes">😂 Meme Factory</div>
+        <div class="nav-item" data-section="games">🎮 Baboon Games</div>
+    </nav>
+
     <div class="container">
-        <header class="animate__animated animate__bounce">
-            <h1 class="title-animate">🎭 The Secret Diary of Anika the Drama Baboon 🐒</h1>
-            <div class="subtitle-banner">
-                Breaking News: Local Girl's Baboon Identity Revealed! 
+        <header class="mega-header">
+            <div class="header-alert">🚨 TOP SECRET BABOON FILES 🚨</div>
+            <h1 class="main-title animate__animated animate__bounce">
+                The Chronicles of Anika: Confessions of a Teenage Baboon
+            </h1>
+            <div class="subtitle-ticker">
+                <span>Breaking News: Local Girl's Secret Baboon Identity Exposed!</span>
             </div>
         </header>
 
-        <div id="dramaticEntry" class="dramatic-entry">
-            EMERGENCY ALERT: This website contains proof that Anika is secretly a baboon! 🚨
-        </div>
-
-        <section class="photo-comparison">
-            <h2>Spot the Difference (There is None!) 😱</h2>
-            <div class="photo-container">
-                <div class="photo-slot" id="photoSlot1">Anika's Photo</div>
-                <div class="vs-text">VS</div>
-                <div class="photo-slot" id="photoSlot2">Baboon Photo</div>
-                <button id="compareButton">Click to Compare! 🔍</button>
+        <section id="baboon-id-card" class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h2>Official Baboon ID Card</h2>
+                    <img src="anika-photo.jpg" alt="Anika's Photo" class="id-photo">
+                    <div class="id-details">
+                        <p>Name: Anika "The Baboon" [REDACTED]</p>
+                        <p>Species: Dramatic Baboonus Maximus</p>
+                        <p>Special Skills: Professional Drama Queen</p>
+                    </div>
+                </div>
+                <div class="flip-card-back">
+                    <h3>Known Baboon Behaviors:</h3>
+                    <ul class="behavior-list">
+                        <li>🗣️ Loudest in class (natural habitat)</li>
+                        <li>🍌 Banana addiction level: Severe</li>
+                        <li>👑 Drama Department MVP</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
-        <section class="evidence-box">
-            <h2>📝 Scientific Evidence of Anika's Baboon Behavior</h2>
-            <div class="evidence-cards" id="evidenceCards"></div>
+        <section class="evidence-gallery">
+            <h2>📸 Caught in the Act: Anika's Baboon Moments</h2>
+            <div class="gallery-container" id="evidenceGallery"></div>
         </section>
 
-        <section class="daily-schedule">
-            <h2>🕒 A Day in the Life of Anika the Baboon</h2>
-            <div class="timeline" id="timeline"></div>
+        <section class="baboon-transformation">
+            <h2>The Evolution of Anika</h2>
+            <div class="transformation-slider">
+                <img src="anika-morning.jpg" class="transform-img" alt="Morning Anika">
+                <div class="slider-control">
+                    <input type="range" id="transformSlider" min="0" max="100">
+                </div>
+                <img src="baboon-final.jpg" class="transform-img" alt="Final Form">
+            </div>
         </section>
 
-        <section class="social-media-parody">
-            <h2>📱 Anika's Baboon Social Media Feed</h2>
-            <div class="social-posts" id="socialPosts"></div>
+        <section class="social-feed">
+            <h2>📱 BaboonGram: Anika's Social Media</h2>
+            <div class="stories-container">
+                <!-- Story highlights will be added here -->
+            </div>
+            <div class="posts-container" id="socialPosts"></div>
         </section>
 
-        <div class="floating-bananas" id="bananas"></div>
-        
-        <section class="meme-generator">
-            <h2>🎨 Create Your Own Anika-Baboon Meme!</h2>
-            <div class="meme-container">
+        <section class="interactive-games">
+            <h2>🎮 Mini-Games</h2>
+            <div class="game-container">
+                <div class="game-card" id="bananaCollector">
+                    <h3>Banana Collector</h3>
+                    <canvas id="gameCanvas"></canvas>
+                </div>
+                <div class="game-card" id="findAnika">
+                    <h3>Spot the Anika</h3>
+                    <div class="game-grid"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="meme-factory">
+            <h2>🎨 Anika Meme Generator 3000</h2>
+            <div class="meme-workspace">
                 <canvas id="memeCanvas"></canvas>
-                <input type="text" id="memeText" placeholder="Add your funny text!">
-                <button id="generateMeme">Generate Meme!</button>
+                <div class="meme-controls">
+                    <input type="text" id="topText" placeholder="Top Text">
+                    <input type="text" id="bottomText" placeholder="Bottom Text">
+                    <button id="generateMeme">Generate!</button>
+                    <button id="downloadMeme">Download</button>
+                </div>
             </div>
         </section>
 
-        <div id="popupContainer"></div>
+        <section class="baboon-dictionary">
+            <h2>📚 Anika to Baboon Dictionary</h2>
+            <div class="dictionary-entries" id="dictionaryEntries"></div>
+        </section>
+
+        <div id="floating-emojis" class="floating-emojis"></div>
+        <div id="notification-center" class="notification-center"></div>
     </div>
     <script src="script.js"></script>
 </body>
