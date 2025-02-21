@@ -11,91 +11,67 @@
 </head>
 <body>
     <div class="banana-cursor"></div>
+    
     <div class="loading-screen">
-        <div class="loading-text">🐒 Loading Anika's Baboon Database... 🍌</div>
+        <div class="loading-text animate__animated animate__bounce">
+            🐒 Loading Anika's Secret Baboon Files... 🍌
+        </div>
         <div class="progress-bar"></div>
+        <div class="loading-facts">
+            <span>Did you know: Anika can screech in 5 different baboon dialects! 🙊</span>
+        </div>
     </div>
 
-    <nav class="navbar">
+    <nav class="navbar animate__animated animate__slideInDown">
         <div class="nav-item" data-section="evidence">📝 Baboon Evidence</div>
-        <div class="nav-item" data-section="daily-life">🌞 Daily Baboonery</div>
+        <div class="nav-item" data-section="daily-life">🌞 Daily Drama</div>
         <div class="nav-item" data-section="memes">😂 Meme Factory</div>
         <div class="nav-item" data-section="games">🎮 Baboon Games</div>
     </nav>
 
     <div class="container">
-        <header class="mega-header">
+        <header class="mega-header animate__animated animate__zoomIn">
             <div class="header-alert">🚨 TOP SECRET BABOON FILES 🚨</div>
-            <h1 class="main-title animate__animated animate__bounce">
+            <h1 class="main-title">
                 The Chronicles of Anika: Confessions of a Teenage Baboon
             </h1>
             <div class="subtitle-ticker">
-                <span>Breaking News: Local Girl's Secret Baboon Identity Exposed!</span>
+                <marquee>BREAKING NEWS: Local Girl's Secret Baboon Identity Exposed! 
+                    Scientists Confirm: It's Definitely Anika! 🐒</marquee>
             </div>
         </header>
 
         <section id="baboon-id-card" class="flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
-                    <h2>Official Baboon ID Card</h2>
-                    <img src="anika-photo.jpg" alt="Anika's Photo" class="id-photo">
+                    <h2>Official Baboon ID</h2>
+                    <div class="profile-pic-container">
+                        <img src="baboon-anika.jpg" alt="Definitely Anika" class="profile-pic">
+                    </div>
                     <div class="id-details">
-                        <p>Name: Anika "The Baboon" [REDACTED]</p>
-                        <p>Species: Dramatic Baboonus Maximus</p>
-                        <p>Special Skills: Professional Drama Queen</p>
+                        <p>Name: Anika "The Baboon" [CLASSIFIED]</p>
+                        <p>Species: Dramaticus Baboonus Maximus</p>
+                        <p>Known For: Expert Drama & Banana Theft</p>
                     </div>
                 </div>
                 <div class="flip-card-back">
-                    <h3>Known Baboon Behaviors:</h3>
+                    <h3>⚠️ Warning: Extreme Baboon Behavior</h3>
                     <ul class="behavior-list">
                         <li>🗣️ Loudest in class (natural habitat)</li>
-                        <li>🍌 Banana addiction level: Severe</li>
+                        <li>🍌 Severe banana addiction</li>
                         <li>👑 Drama Department MVP</li>
+                        <li>😱 Professional attention seeker</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section class="evidence-gallery">
-            <h2>📸 Caught in the Act: Anika's Baboon Moments</h2>
-            <div class="gallery-container" id="evidenceGallery"></div>
+        <section class="evidence-gallery" id="evidence">
+            <!-- Evidence cards will be dynamically added here -->
         </section>
 
-        <section class="baboon-transformation">
-            <h2>The Evolution of Anika</h2>
-            <div class="transformation-slider">
-                <img src="anika-morning.jpg" class="transform-img" alt="Morning Anika">
-                <div class="slider-control">
-                    <input type="range" id="transformSlider" min="0" max="100">
-                </div>
-                <img src="baboon-final.jpg" class="transform-img" alt="Final Form">
-            </div>
-        </section>
-
-        <section class="social-feed">
-            <h2>📱 BaboonGram: Anika's Social Media</h2>
-            <div class="stories-container">
-                <!-- Story highlights will be added here -->
-            </div>
-            <div class="posts-container" id="socialPosts"></div>
-        </section>
-
-        <section class="interactive-games">
-            <h2>🎮 Mini-Games</h2>
-            <div class="game-container">
-                <div class="game-card" id="bananaCollector">
-                    <h3>Banana Collector</h3>
-                    <canvas id="gameCanvas"></canvas>
-                </div>
-                <div class="game-card" id="findAnika">
-                    <h3>Spot the Anika</h3>
-                    <div class="game-grid"></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="meme-factory">
-            <h2>🎨 Anika Meme Generator 3000</h2>
+        <section class="meme-factory" id="memes">
+            <h2>🎨 Meme Generator 3000</h2>
             <div class="meme-workspace">
                 <canvas id="memeCanvas"></canvas>
                 <div class="meme-controls">
@@ -107,14 +83,35 @@
             </div>
         </section>
 
-        <section class="baboon-dictionary">
-            <h2>📚 Anika to Baboon Dictionary</h2>
-            <div class="dictionary-entries" id="dictionaryEntries"></div>
+        <section class="baboon-games" id="games">
+            <h2>🎮 Mini-Games</h2>
+            <div class="game-container">
+                <div class="game-card">
+                    <h3>Banana Collector</h3>
+                    <canvas id="gameCanvas"></canvas>
+                    <button class="start-game">Start Game</button>
+                </div>
+                <div class="game-card">
+                    <h3>Find Anika</h3>
+                    <div class="game-grid"></div>
+                </div>
+            </div>
         </section>
 
-        <div id="floating-emojis" class="floating-emojis"></div>
-        <div id="notification-center" class="notification-center"></div>
+        <section class="social-feed">
+            <h2>📱 BaboonGram: Anika's Social Media</h2>
+            <div class="stories-container">
+                <!-- Story highlights will be added here -->
+            </div>
+            <div id="socialPosts">
+                <!-- Social posts will be added here -->
+            </div>
+        </section>
     </div>
+
+    <div id="floating-emojis"></div>
+    <div id="notification-center"></div>
+
     <script src="script.js"></script>
 </body>
 </html>
