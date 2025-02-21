@@ -4,46 +4,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anika the Baboon</title>
+    <title>🐒 Anika's Baboon Life Exposed! 🙈</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
+    <div class="banana-cursor"></div>
     <div class="container">
-        <header>
-            <h1 class="title-animate">The Amazing Adventures of Anika the Baboon! 🐒</h1>
+        <header class="animate__animated animate__bounce">
+            <h1 class="title-animate">🎭 The Secret Diary of Anika the Drama Baboon 🐒</h1>
+            <div class="subtitle-banner">
+                Breaking News: Local Girl's Baboon Identity Revealed! 
+            </div>
         </header>
 
-        <div class="popup" id="welcomePopup">
-            Guess who's a baboon? YOU ARE, ANIKA! 😂
+        <div id="dramaticEntry" class="dramatic-entry">
+            EMERGENCY ALERT: This website contains proof that Anika is secretly a baboon! 🚨
         </div>
 
-        <section class="info-card">
-            <h2>Hey Bestie!</h2>
-            <p class="sparkle-text">Guess what? I found your spirit animal... it's a BABOON! 😂</p>
-        </section>
-
-        <section class="baboon-traits">
-            <h2>Why Anika is Totally a Baboon</h2>
-            <ul class="floating-list">
-                <li>Super loud (just like you in class!) 📢</li>
-                <li>Always hanging with the squad 👯‍♀️</li>
-                <li>Lives for the drama 🎭</li>
-                <li>Queen of facial expressions 😜</li>
-                <li>Loves snacking 24/7 🍪</li>
-            </ul>
-        </section>
-
-        <div class="image-container">
-            <img id="baboonImage" src="baboon.jpg" alt="Funny Baboon">
-            <button id="transformButton">Click to See Anika Transform!</button>
-        </div>
-
-        <section class="community-section">
-            <h2>Anika's Baboon Community Be Like:</h2>
-            <div class="community-cards" id="communityCards">
-                <!-- Cards will be added by JavaScript -->
+        <section class="photo-comparison">
+            <h2>Spot the Difference (There is None!) 😱</h2>
+            <div class="photo-container">
+                <div class="photo-slot" id="photoSlot1">Anika's Photo</div>
+                <div class="vs-text">VS</div>
+                <div class="photo-slot" id="photoSlot2">Baboon Photo</div>
+                <button id="compareButton">Click to Compare! 🔍</button>
             </div>
         </section>
+
+        <section class="evidence-box">
+            <h2>📝 Scientific Evidence of Anika's Baboon Behavior</h2>
+            <div class="evidence-cards" id="evidenceCards"></div>
+        </section>
+
+        <section class="daily-schedule">
+            <h2>🕒 A Day in the Life of Anika the Baboon</h2>
+            <div class="timeline" id="timeline"></div>
+        </section>
+
+        <section class="social-media-parody">
+            <h2>📱 Anika's Baboon Social Media Feed</h2>
+            <div class="social-posts" id="socialPosts"></div>
+        </section>
+
+        <div class="floating-bananas" id="bananas"></div>
+        
+        <section class="meme-generator">
+            <h2>🎨 Create Your Own Anika-Baboon Meme!</h2>
+            <div class="meme-container">
+                <canvas id="memeCanvas"></canvas>
+                <input type="text" id="memeText" placeholder="Add your funny text!">
+                <button id="generateMeme">Generate Meme!</button>
+            </div>
+        </section>
+
+        <div id="popupContainer"></div>
     </div>
     <script src="script.js"></script>
 </body>
