@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🐒 Short Monkey's Bananaverse - The Ultimate Monkey Business! 🍌</title>
+    <title>🐒 Short Monkey's Ultimate Jungle Adventure! 🍌</title>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
@@ -23,10 +23,9 @@
         }
 
         body {
-            background-image: linear-gradient(rgba(46, 125, 50, 0.9), rgba(46, 125, 50, 0.9)),
-                url('https://www.transparenttextures.com/patterns/jungle.png');
             font-family: 'Comic Neue', cursive;
             color: white;
+            background-color: var(--jungle-green);
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><text y="20">🍌</text></svg>'), auto;
         }
 
@@ -47,7 +46,7 @@
 
         /* Header Styles */
         .header {
-            background-color: var(--monkey-brown);
+            background-color: rgba(139, 69, 19, 0.9);
             padding: 20px;
             position: fixed;
             width: 100%;
@@ -64,6 +63,52 @@
             animation: swingText 3s infinite;
         }
 
+        /* Hero Section */
+        .hero-section {
+            background-image: url('https://cdn.prod.website-files.com/5ad143610f7efd77b6f188f3/5fce7c2e62811db064feb56f_AdobeStock_231755734-p-800.jpeg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            position: relative;
+            margin-top: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            padding: 20px;
+            max-width: 800px;
+        }
+
+        .hero-content h2 {
+            font-size: 4em;
+            font-family: 'Bangers', cursive;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            animation: swingText 3s infinite;
+        }
+
+        .hero-content p {
+            font-size: 1.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+        }
+
         .monkey-meter {
             position: fixed;
             top: 10px;
@@ -76,12 +121,12 @@
 
         /* Navigation */
         .nav {
-            background-color: var(--tree-bark);
+            background-color: rgba(93, 64, 55, 0.9);
             padding: 15px;
-            margin-top: 80px;
             position: sticky;
             top: 80px;
             z-index: 99;
+            backdrop-filter: blur(5px);
         }
 
         .nav a {
@@ -117,6 +162,9 @@
             max-width: 1200px;
             margin: 20px auto;
             padding: 20px;
+            background: rgba(46, 125, 50, 0.8);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
         }
 
         /* Monkey Profile Section */
@@ -130,6 +178,7 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             position: relative;
             overflow: hidden;
+            transform: translateZ(0);
         }
 
         .monkey-profile::before {
@@ -152,6 +201,7 @@
             box-shadow: 0 0 20px rgba(255, 219, 77, 0.5);
         }
 
+        /* Continue with Part 2... */
         /* Banana Game Section */
         .banana-game {
             background: rgba(255, 219, 77, 0.1);
@@ -159,6 +209,7 @@
             border-radius: 20px;
             margin: 30px 0;
             text-align: center;
+            backdrop-filter: blur(5px);
         }
 
         .banana-counter {
@@ -185,7 +236,7 @@
             transition: width 0.3s;
         }
 
-        /* Interactive Elements */
+        /* Banana Button */
         .banana-button {
             background: linear-gradient(45deg, var(--banana-yellow), #ffd700);
             border: none;
@@ -203,47 +254,9 @@
             overflow: hidden;
         }
 
-        .banana-button::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 65%);
-            transform: scale(0);
-            transition: transform 0.5s;
-        }
-
-        .banana-button:hover::before {
-            transform: scale(1);
-        }
-
         .banana-button:hover {
             transform: scale(1.1) rotate(5deg);
             box-shadow: 0 6px 25px rgba(255, 219, 77, 0.4);
-        }
-
-        /* Monkey Stats */
-        .monkey-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .stat-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            backdrop-filter: blur(5px);
-            transition: all 0.3s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.2);
         }
 
         /* Animations */
@@ -263,34 +276,21 @@
             50% { transform: translateY(-20px) rotate(5deg); }
         }
 
-        /* Banana Rain Effect */
-        .banana-rain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 9999;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            display: none;
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2em;
             }
-
+            .hero-content h2 {
+                font-size: 2.5em;
+            }
             .monkey-profile {
                 flex-direction: column;
                 text-align: center;
             }
-
             .monkey-profile img {
                 margin: 0 0 20px 0;
             }
-
             .nav a {
                 display: block;
                 margin: 10px 0;
@@ -299,8 +299,6 @@
     </style>
 </head>
 <body>
-    <div class="banana-rain" id="bananaRain"></div>
-
     <header class="header">
         <h1>🐒 Short Monkey's Banana Bonanza! 🍌</h1>
         <div class="monkey-meter">
@@ -308,6 +306,17 @@
             <span id="monkeyPower">0</span>
         </div>
     </header>
+
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content animate__animated animate__fadeIn">
+            <h2>Welcome to the Jungle! 🌴</h2>
+            <p>Where Short Monkey rules and bananas are the currency of happiness!</p>
+            <button class="banana-button animate__animated animate__pulse animate__infinite" onclick="collectBanana()">
+                Start Your Monkey Business! 🍌
+            </button>
+        </div>
+    </section>
 
     <nav class="nav">
         <a href="#home">Monkey HQ</a>
@@ -336,21 +345,6 @@
             </div>
             <button class="banana-button" onclick="collectBanana()">GRAB THAT BANANA! 🍌</button>
         </section>
-
-        <section class="monkey-stats">
-            <div class="stat-card">
-                <h3>Monkey Level</h3>
-                <p id="monkeyLevel">Rookie Banana Peeler</p>
-            </div>
-            <div class="stat-card">
-                <h3>Bananas Per Second</h3>
-                <p id="bps">0 BPS</p>
-            </div>
-            <div class="stat-card">
-                <h3>Monkey Achievements</h3>
-                <p id="achievements">🏆 Loading...</p>
-            </div>
-        </section>
     </div>
 
     <script>
@@ -370,130 +364,62 @@
             "MONKEY SEE, MONKEY GRAB BANANA! 🐵"
         ];
 
-        const achievements = [
-            "Banana Rookie",
-            "Banana Enthusiast",
-            "Banana Professional",
-            "Banana Master",
-            "Banana Legend",
-            "Ultimate Banana King"
-        ];
-
         function collectBanana() {
             // Increment banana count with multiplier
             bananaCount += multiplier;
-            updateDisplay();
+            monkeyPower += Math.floor(Math.random() * 5) + 1;
+            
+            // Update displays
+            document.getElementById('bananaCount').textContent = bananaCount;
+            document.getElementById('monkeyPower').textContent = monkeyPower;
             
             // Add power to the power-up bar
             powerLevel += 5;
             if (powerLevel >= 100) {
-                activateBananaRain();
+                activatePowerMode();
                 powerLevel = 0;
             }
-            updatePowerBar();
-
-            // Show random phrase with animation
-            showMonkeyPhrase();
-
-            // Create floating banana
-            createFloatingBanana();
-
-            // Update monkey level
-            updateMonkeyLevel();
-        }
-
-        function updateDisplay() {
-            document.getElementById('bananaCount').textContent = bananaCount;
-            document.getElementById('monkeyPower').textContent = monkeyPower;
-            document.getElementById('bps').textContent = `${multiplier} BPS`;
-        }
-
-        function updatePowerBar() {
             document.getElementById('powerUpBar').style.width = `${powerLevel}%`;
+
+            // Create floating text
+            createFloatingText();
         }
 
-        function showMonkeyPhrase() {
+        function createFloatingText() {
             const phrase = monkeyPhrases[Math.floor(Math.random() * monkeyPhrases.length)];
-            const phraseDiv = document.createElement('div');
-            phraseDiv.textContent = phrase;
-            phraseDiv.style.position = 'fixed';
-            phraseDiv.style.left = `${Math.random() * 80}%`;
-            phraseDiv.style.top = `${Math.random() * 80}%`;
-            phraseDiv.style.animation = 'floating 2s forwards';
-            phraseDiv.style.fontSize = '24px';
-            document.body.appendChild(phraseDiv);
-            setTimeout(() => document.body.removeChild(phraseDiv), 2000);
+            const text = document.createElement('div');
+            text.textContent = phrase;
+            text.style.position = 'fixed';
+            text.style.left = `${Math.random() * 80}%`;
+            text.style.top = '50%';
+            text.style.animation = 'floating 2s forwards';
+            text.style.fontSize = '24px';
+            text.style.zIndex = '1000';
+            text.style.textShadow = '2px 2px 4px rgba(0,0,0,0.5)';
+            document.body.appendChild(text);
+            setTimeout(() => document.body.removeChild(text), 2000);
         }
 
-        function createFloatingBanana() {
-            const banana = document.createElement('div');
-            banana.textContent = '🍌';
-            banana.style.position = 'fixed';
-            banana.style.left = `${Math.random() * window.innerWidth}px`;
-            banana.style.top = '-50px';
-            banana.style.fontSize = '40px';
-            banana.style.animation = 'floating 1s forwards';
-            document.body.appendChild(banana);
-            setTimeout(() => document.body.removeChild(banana), 1000);
+        function activatePowerMode() {
+            multiplier *= 2;
+            alert('🍌 SUPER MONKEY POWER ACTIVATED! 🐒');
+            setTimeout(() => multiplier = Math.max(1, multiplier / 2), 10000);
         }
 
-        function activateBananaRain() {
-            const rain = document.getElementById('bananaRain');
-            rain.style.display = 'block';
-            
-            for (let i = 0; i < 50; i++) {
-                setTimeout(() => {
-                    const banana = document.createElement('div');
-                    banana.textContent = '🍌';
-                    banana.style.position = 'absolute';
-                    banana.style.left = `${Math.random() * 100}%`;
-                    banana.style.top = '-50px';
-                    banana.style.fontSize = '30px';
-                    banana.style.animation = 'falling 1s linear forwards';
-                    rain.appendChild(banana);
-                    setTimeout(() => rain.removeChild(banana), 1000);
-                }, i * 100);
-            }
-
-            setTimeout(() => rain.style.display = 'none', 5000);
-        }
-
-        function updateMonkeyLevel() {
-            const level = Math.floor(bananaCount / 100);
-            const achievement = achievements[Math.min(level, achievements.length - 1)];
-            document.getElementById('monkeyLevel').textContent = achievement;
-        }
-
-        // Easter egg: Konami code
-        let keys = [];
-        const konami = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-        
-        document.addEventListener('keydown', (e) => {
-            keys.push(e.key);
-            keys = keys.slice(-10);
-            
-            if (JSON.stringify(keys) === JSON.stringify(konami)) {
-                multiplier *= 2;
-                document.body.style.transform = 'rotate(360deg)';
-                setTimeout(() => document.body.style.transform = 'rotate(0deg)', 1000);
-                alert('🍌 SUPER MONKEY MODE ACTIVATED! Banana multiplier x2! 🐒');
-            }
-        });
-
-        // Auto-save progress
+        // Save progress
         setInterval(() => {
             localStorage.setItem('bananaCount', bananaCount);
+            localStorage.setItem('monkeyPower', monkeyPower);
             localStorage.setItem('multiplier', multiplier);
         }, 5000);
 
         // Load saved progress
         window.onload = () => {
-            const savedBananas = localStorage.getItem('bananaCount');
-            const savedMultiplier = localStorage.getItem('multiplier');
-            if (savedBananas) bananaCount = parseInt(savedBananas);
-            if (savedMultiplier) multiplier = parseInt(savedMultiplier);
-            updateDisplay();
-            updateMonkeyLevel();
+            bananaCount = parseInt(localStorage.getItem('bananaCount')) || 0;
+            monkeyPower = parseInt(localStorage.getItem('monkeyPower')) || 0;
+            multiplier = parseInt(localStorage.getItem('multiplier')) || 1;
+            document.getElementById('bananaCount').textContent = bananaCount;
+            document.getElementById('monkeyPower').textContent = monkeyPower;
         };
     </script>
 </body>
